@@ -1,7 +1,7 @@
 'use strict';
 
 // global basedir
-global.appRootFolder = __dirname.replace('/apex-plugin-dev-enhancer/lib', '/apex-plugin-dev-enhancer');
+global.appRootFolder = __dirname;
 
 module.exports = {
   init: require(appRootFolder + '/lib/commands/init.js'),

@@ -343,8 +343,8 @@ CREATE OR REPLACE PACKAGE BODY apde_pkg IS
   BEGIN
     --
     IF p_value IS NOT NULL THEN
-      l_prefix := 'set verify off feedback off define off' ||
-                  apex_application.lf || 'BEGIN' || apex_application.lf ||
+      l_prefix := 'set define off' || apex_application.lf || 'begin' ||
+                  apex_application.lf ||
                   '  EXECUTE IMMEDIATE apex_string.join_clob(apex_t_varchar2(';
       IF instr(p_value,
                apex_application.lf) > 0 THEN
@@ -361,7 +361,7 @@ CREATE OR REPLACE PACKAGE BODY apde_pkg IS
                      p_line   => l_lines(i),
                      p_suffix => CASE
                                    WHEN i = l_lines.count THEN
-                                    '));' || apex_application.lf || 'END;' ||
+                                    '));' || apex_application.lf || 'end;' ||
                                     apex_application.lf || '/' || apex_application.lf
                                    ELSE
                                     ','

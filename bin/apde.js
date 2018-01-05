@@ -2,7 +2,7 @@
 
 //const update = require('update-notifier');
 //const pkg = require('../package.json');
-const apde = require('../lib');
+const apde = require('../index.js');
 
 // Workaround for MacOS which doesn't allow to sigint
 process.on('SIGINT', () => {
@@ -22,11 +22,11 @@ const userArgs = process.argv.slice(2);
 if (notifier.update) {
 	notifier.notify({
 		defer: false,
-		message: chalk.bold('APEX Nitro') + ' update available ' +
+		message: chalk.bold('APDE') + ' update available ' +
 			chalk.dim(notifier.update.current) +
 			chalk.reset(' → ') +
 			chalk.green(notifier.update.latest) +
-			' \nRun:\n' + chalk.cyan.bold('npm install -g apex-nitro')
+			' \nRun:\n' + chalk.cyan.bold('npm install -g apex-plugin-dev-enhancer')
 	});
 }*/
 
