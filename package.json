@@ -1,0 +1,38 @@
+{
+  "name": "apex-plugin-dev-enhancer",
+  "version": "0.8.3",
+  "description": "Local command line tool to enhance Oracle APEX Plug-in development",
+  "main": "lib/index.js",
+  "bin": {
+    "apde": "./bin/apde.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dani3lSun/apex-plugin-dev-enhancer.git"
+  },
+  "keywords": [
+    "oracle",
+    "apex",
+    "orclapex",
+    "plugin",
+    "css",
+    "javascript",
+    "plsql"
+  ],
+  "author": "Daniel Hochleitner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dani3lSun/apex-plugin-dev-enhancer/issues"
+  },
+  "homepage": "https://github.com/Dani3lSun/apex-plugin-dev-enhancer#readme",
+  "dependencies": {
+    "apex-publish-static-files": "^2.0.0",
+    "chalk": "^2.3.0",
+    "fs-extra": "^5.0.0",
+    "jsondir": "^0.1.3",
+    "prompt": "^1.0.0"
+  }
+}

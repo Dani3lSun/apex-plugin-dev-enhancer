@@ -1,0 +1,21 @@
+{
+  "plugin": {
+    "name": "",
+    "type": "",
+    "appId": 100
+  },
+  "database": {
+    "host": "localhost",
+    "port": 1521,
+    "sid": "orcl",
+    "username": "",
+    "password": ""
+  },
+  "folders": {
+    "srcApexFolder": "src/apex",
+    "srcDbFolder": "src/db",
+    "srcFilesFolder": "src/files",
+    "distFolder": "dist"
+  },
+  "sqlclPath": ""
+}

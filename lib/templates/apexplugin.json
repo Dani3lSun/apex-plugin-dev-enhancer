@@ -1,0 +1,35 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "<Enter your Plug-in Description>",
+  "keywords": ["oracle", "apex", "plugin"],
+  "homepage": "https://github.com/<GITHUB_USER>/<GITHUB_REPO>",
+  "bugs": {
+    "url": "https://github.com/<GITHUB_USER>/<GITHUB_REPO>/issues",
+    "email": "<YOUR_EMAIL>"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "<YOUR_NAME>",
+    "email": "<YOUR_EMAIL>",
+    "url": "<YOUR_HOMEPAGE>",
+    "twitter": "",
+    "donationUrl": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<GITHUB_USER>/<GITHUB_REPO>.git"
+  },
+  "oracle": {
+    "versions": ["11.2.0.1", "12.1.0.1", "12.2.0.1"],
+    "apex": {
+      "versions": ["5.0.0", "5.1.0"],
+      "plugin": {
+        "internalName": "",
+        "type": "",
+        "demo": "<PLUGIN_DEMO_URL>",
+        "previewImage": "https://raw.githubusercontent.com/<GITHUB_USER>/<GITHUB_REPO>/master/preview.gif"
+      }
+    }
+  }
+}

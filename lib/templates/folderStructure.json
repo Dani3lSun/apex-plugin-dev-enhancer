@@ -1,0 +1,30 @@
+{
+  "-path": "#working_dir#",
+  "src": {
+    "-type": "d",
+    "apex": {
+      "-type": "d"
+    },
+    "db": {
+      "-type": "d",
+      "#plg_short_name#_plg_pkg.pks": {
+        "-type": "f"
+      },
+      "#plg_short_name#_plg_pkg.pkb": {
+        "-type": "f"
+      }
+    },
+    "files": {
+      "-type": "d"
+    }
+  },
+  "dist": {
+    "-type": "d"
+  },
+  "apexplugin.json": {
+    "-type": "f"
+  },
+  "readme.md": {
+    "-type": "f"
+  }
+}
