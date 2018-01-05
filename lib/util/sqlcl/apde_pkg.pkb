@@ -250,7 +250,7 @@ CREATE OR REPLACE PACKAGE BODY apde_pkg IS
   * Changed:
   ****************************************************************************/
   PROCEDURE write_buffer(p_text IN VARCHAR2 DEFAULT NULL) IS
-    l_p_text_length BINARY_INTEGER := nvl(lengthb(TRIM(p_text)),
+    l_p_text_length BINARY_INTEGER := nvl(lengthb(p_text),
                                           0);
   BEGIN
     IF g_format = 'DB' THEN
