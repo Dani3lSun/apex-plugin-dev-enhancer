@@ -2,11 +2,19 @@
 
 Local command line tool to enhance Oracle APEX Plug-in development...
 
+![demo](/docs/demo.gif)
+
+
+## Requirements
+* [Node.js](https://nodejs.org/en/)
+* [SQLcl](http://www.oracle.com/technetwork/developer-tools/sqlcl/overview/index.html)
+
 
 ## Install
 ```
 npm install apex-plugin-dev-enhancer -g
 ```
+
 
 ## Usage
 
@@ -44,6 +52,11 @@ Executes all steps to create a final Plug-in build ready for distribution. Uploa
 cd path/to/project
 apde build
 ```
+
+
+## Credits
+
+- [Vincent Morneau´s apex-publish-static-files](https://github.com/vincentmorneau/apex-publish-static-files)
 
 
 ## License
