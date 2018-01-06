@@ -343,7 +343,7 @@ CREATE OR REPLACE PACKAGE BODY apde_pkg IS
   BEGIN
     --
     IF p_value IS NOT NULL THEN
-      l_prefix := 'set define off' || apex_application.lf || 'begin' ||
+      l_prefix := 'set verify off define off' || apex_application.lf || 'begin' ||
                   apex_application.lf ||
                   '  EXECUTE IMMEDIATE apex_string.join_clob(apex_t_varchar2(';
       IF instr(p_value,

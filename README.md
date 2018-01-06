@@ -2,6 +2,8 @@
 
 Local command line tool to enhance Oracle APEX Plug-in development...
 
+*Note: At the moment still Beta! Ideas and testing are very welcome...*
+
 ![demo](/docs/demo.gif)
 
 
