@@ -1,6 +1,20 @@
 CREATE OR REPLACE PACKAGE BODY apde_pkg IS
   --
   /****************************************************************************
+  * Purpose: Get Version of APDE Package
+  * Author:  Daniel Hochleitner
+  * Created: 07.01.2018
+  * Changed:
+  ****************************************************************************/
+  FUNCTION get_apde_version RETURN VARCHAR2 IS
+    --
+  BEGIN
+    --
+    RETURN apde_pkg.g_version;
+    --
+  END get_apde_version;
+  --
+  /****************************************************************************
   * Purpose:  Convert CLOB to VARCHAR2
   *           Inspired by wwv_flow_gen_api2 (Plugin Export)
   * Author:   Daniel Hochleitner
@@ -343,8 +357,8 @@ CREATE OR REPLACE PACKAGE BODY apde_pkg IS
   BEGIN
     --
     IF p_value IS NOT NULL THEN
-      l_prefix := 'set verify off define off' || apex_application.lf || 'begin' ||
-                  apex_application.lf ||
+      l_prefix := 'set verify off define off' || apex_application.lf ||
+                  'begin' || apex_application.lf ||
                   '  EXECUTE IMMEDIATE apex_string.join_clob(apex_t_varchar2(';
       IF instr(p_value,
                apex_application.lf) > 0 THEN
