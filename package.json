@@ -1,6 +1,6 @@
 {
   "name": "apex-plugin-dev-enhancer",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "Local command line tool to enhance Oracle APEX Plug-in development",
   "main": "lib/index.js",
   "bin": {
@@ -32,8 +32,11 @@
     "apex-publish-static-files": "^2.0.0",
     "chalk": "^2.3.0",
     "fs-extra": "^5.0.0",
+    "graceful-fs": "^4.1.11",
+    "mkdirp": "^0.5.1",
     "node-minify": "^2.4.1",
     "prompt": "^1.0.0",
+    "rimraf": "^2.6.2",
     "uid-number": "0.0.6",
     "update-notifier": "^2.3.0",
     "xtend": "^4.0.1"
