@@ -48,6 +48,13 @@ cd path/to/project
 apde files
 ```
 
+#### Minify/Compress static Plug-in files
+Compresses & minifies all JS/CSS Plug-in static files located in src/files and outputs a *.min.js* or *.min.css* file in the same directory
+```
+cd path/to/project
+apde minify
+```
+
 #### Build Plug-in file for distribution
 Executes all steps to create a final Plug-in build ready for distribution. Uploads all static files, exports the Plug-in SQL and concats your PL/SQL package to the file. So all necessary objects are contained in one single file. Default location: dist/
 ```
