@@ -1,4 +1,4 @@
-set define on
+set define on verify off
 
 define EXEC_PATH = '&1'
 define PKG_VERSION = '&2'
