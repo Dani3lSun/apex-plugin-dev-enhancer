@@ -146,6 +146,40 @@ CREATE OR REPLACE PACKAGE BODY apde_pkg IS
   END blob_to_clob;
   --
   /****************************************************************************
+  * Purpose:  Convert CLOB to BLOB
+  *           https://github.com/OraOpenSource/oos-utils/blob/master/source/packages/oos_util_lob.pkb
+  * Author:   Daniel Hochleitner
+  * Created:  09.01.2018
+  * Changed:
+  ****************************************************************************/
+  FUNCTION clob_to_blob(p_clob IN CLOB) RETURN BLOB AS
+    l_blob        BLOB;
+    l_dest_offset INTEGER := 1;
+    l_src_offset  INTEGER := 1;
+    l_lang_ctx    INTEGER := dbms_lob.default_lang_ctx;
+    l_warning     INTEGER;
+  BEGIN
+    IF p_clob IS NULL THEN
+      RETURN NULL;
+    END IF;
+    --
+    dbms_lob.createtemporary(lob_loc => l_blob,
+                             cache   => FALSE);
+    --
+    dbms_lob.converttoblob(dest_lob     => l_blob,
+                           src_clob     => p_clob,
+                           amount       => dbms_lob.lobmaxsize,
+                           dest_offset  => l_dest_offset,
+                           src_offset   => l_src_offset,
+                           blob_csid    => dbms_lob.default_csid,
+                           lang_context => l_lang_ctx,
+                           warning      => l_warning);
+    --
+    RETURN l_blob;
+    --
+  END clob_to_blob;
+  --
+  /****************************************************************************
   * Purpose:  Get NLS characterset of DB
   *           Inspired by wwv_flow_lang
   * Author:   Daniel Hochleitner
@@ -433,6 +467,35 @@ CREATE OR REPLACE PACKAGE BODY apde_pkg IS
   END generate_exec_stmt;
   --
   /****************************************************************************
+  * Purpose:  Generate Native Compile block for specified package name
+  * Author:   Daniel Hochleitner
+  * Created:  09.01.2018
+  * Changed:
+  ****************************************************************************/
+  FUNCTION generate_native_compile(p_pkg_name IN VARCHAR2) RETURN BLOB IS
+    l_clob CLOB;
+    l_blob BLOB;
+  BEGIN
+    l_clob := 'begin' || apex_application.lf;
+    l_clob := l_clob ||
+              ' EXECUTE IMMEDIATE ''ALTER SESSION SET plsql_compiler_flags = ''''NATIVE'''''';' ||
+              apex_application.lf;
+    l_clob := l_clob ||
+              ' EXECUTE IMMEDIATE ''ALTER SESSION SET plsql_code_type = ''''NATIVE'''''';' ||
+              apex_application.lf;
+    l_clob := l_clob || ' EXECUTE IMMEDIATE ''ALTER PACKAGE ' ||
+              dbms_assert.sql_object_name(p_pkg_name) || ' COMPILE'';' ||
+              apex_application.lf;
+    l_clob := l_clob || 'end;' || apex_application.lf;
+    l_clob := l_clob || '/' || apex_application.lf;
+    --
+    l_blob := clob_to_blob(p_clob => l_clob);
+    --
+    RETURN l_blob;
+    --
+  END generate_native_compile;
+  --
+  /****************************************************************************
   * Purpose: Build final plugin export file containing plg export, pkg spec and body
   * Author:  Daniel Hochleitner
   * Created: 02.01.2018
@@ -440,7 +503,8 @@ CREATE OR REPLACE PACKAGE BODY apde_pkg IS
   ****************************************************************************/
   FUNCTION build_plugin_file(p_plg_export  IN BLOB,
                              p_db_pkg_spec IN BLOB,
-                             p_db_pkg_body IN BLOB) RETURN BLOB IS
+                             p_db_pkg_body IN BLOB,
+                             p_pkg_name    IN VARCHAR2) RETURN BLOB IS
     --
     l_blob BLOB;
     --
@@ -458,6 +522,9 @@ CREATE OR REPLACE PACKAGE BODY apde_pkg IS
     --
     dbms_lob.append(l_blob,
                     g_blob_writer.get_value);
+    -- append native compile block for pkg
+    dbms_lob.append(l_blob,
+                    generate_native_compile(p_pkg_name => p_pkg_name));
     -- free blob buffer
     free_writer_buffer;
     --

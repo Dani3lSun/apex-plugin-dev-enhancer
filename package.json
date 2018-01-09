@@ -1,6 +1,6 @@
 {
   "name": "apex-plugin-dev-enhancer",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "Local command line tool to enhance Oracle APEX Plug-in development",
   "main": "lib/index.js",
   "bin": {
