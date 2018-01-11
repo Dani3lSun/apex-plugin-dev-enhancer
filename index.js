@@ -2,6 +2,7 @@
 
 // global basedir
 global.appRootFolder = __dirname;
+global.plgBuildMethod = 'client'; // "client" or "server"
 
 module.exports = {
   init: require(appRootFolder + '/lib/commands/init.js'),

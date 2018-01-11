@@ -1,6 +1,6 @@
 CREATE OR REPLACE PACKAGE apde_pkg IS
   --
-  g_version      VARCHAR2(10) := '0.9.5';
+  g_version      VARCHAR2(10) := '0.9.6';
   g_writer       t_writer := t_dbms_output_writer();
   g_blob_writer  t_blob_writer;
   g_format       VARCHAR2(30) := 'DB';
