@@ -2,7 +2,7 @@
   "name": "apex-plugin-dev-enhancer",
   "version": "0.9.6",
   "description": "Local command line tool to enhance Oracle APEX Plug-in development",
-  "main": "lib/index.js",
+  "main": "index.js",
   "bin": {
     "apde": "./bin/apde.js"
   },
@@ -29,16 +29,16 @@
   },
   "homepage": "https://github.com/Dani3lSun/apex-plugin-dev-enhancer#readme",
   "dependencies": {
-    "apex-publish-static-files": "^2.0.0",
-    "chalk": "^2.3.0",
-    "fs-extra": "^5.0.0",
-    "graceful-fs": "^4.1.11",
+    "apex-publish-static-files": "^2.0.1",
+    "chalk": "^2.4.2",
+    "fs-extra": "^8.0.1",
+    "graceful-fs": "^4.1.15",
     "mkdirp": "^0.5.1",
-    "node-minify": "^2.4.1",
+    "node-minify": "^3.6.0",
     "prompt": "^1.0.0",
-    "rimraf": "^2.6.2",
+    "rimraf": "^2.6.3",
     "uid-number": "0.0.6",
-    "update-notifier": "^2.3.0",
+    "update-notifier": "^3.0.0",
     "xtend": "^4.0.1"
   }
 }
