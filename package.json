@@ -30,13 +30,13 @@
   "homepage": "https://github.com/Dani3lSun/apex-plugin-dev-enhancer#readme",
   "dependencies": {
     "apex-publish-static-files": "^2.0.1",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "fs-extra": "^8.1.0",
-    "graceful-fs": "^4.2.1",
+    "graceful-fs": "^4.2.3",
     "mkdirp": "^0.5.1",
     "node-minify": "^3.6.0",
     "prompt": "^1.0.0",
-    "rimraf": "^2.6.3",
+    "rimraf": "^3.0.0",
     "uid-number": "0.0.6",
     "update-notifier": "^3.0.1",
     "xtend": "^4.0.2"
